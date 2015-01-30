@@ -1,1 +1,2 @@
-# meteor-paperjs
+Paper.js for Meteor framework
+
