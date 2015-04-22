@@ -1,5 +1,8 @@
+
+var packageName = 'marcinn:paperjs';
+
 Package.describe({
-  name: 'marcinn:paperjs',
+  name: packageName,
   version: '0.9.1',
   summary: 'Paper.js for Meteor',
   git: 'https://github.com/marc-inn/meteor-paperjs.git',
@@ -8,12 +11,13 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.0.3.1');
-  api.addFiles('marcinn:paperjs.js');
-  api.add_files('paper-full.min.js', 'client');
+  api.addFiles('paper.js', 'client');
+  api.export('paper', 'client', 'server');
+ // api.add_files('paper.js', 'client');
 });
 
 Package.onTest(function(api) {
   api.use('tinytest');
-  api.use('marcinn:paperjs');
-  api.addFiles('marcinn:paperjs-tests.js');
+  api.use(packageName);
+  api.addFiles('paperjs-tests.js');
 });
